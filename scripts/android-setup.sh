@@ -33,10 +33,7 @@ else
       echo "   !!! android-res/mipmap-$d ist leer oder fehlt"; fehlt=ja
     fi
   done
-  if [ -f android-res/values/colors.xml ]; then
-    mkdir -p "$RES/values"; cp -f android-res/values/colors.xml "$RES/values/colors.xml"
-  fi
-  rm -f "$RES/drawable/ic_launcher_background.xml" 2>/dev/null
+  rm -f "$RES/drawable/ic_launcher_background.xml" "$RES/drawable-v24/ic_launcher_foreground.xml" 2>/dev/null
   if [ "$fehlt" = "nein" ] && [ -f "$RES/mipmap-xxxhdpi/ic_launcher_background.png" ] \
      && grep -q "@mipmap/ic_launcher_background" "$RES/mipmap-anydpi-v26/ic_launcher.xml" 2>/dev/null; then
     ICON_OK=ja
